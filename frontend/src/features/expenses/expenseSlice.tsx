@@ -1,7 +1,8 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import produce from 'immer'
 import { RootState } from '../../app/store'
-import { fetchExpenses } from './expenseAPI'
+import { fetchExpenses, createExpense } from './expenseAPI'
+import { platform } from 'os'
 
 
 export enum Statuses{
@@ -10,6 +11,16 @@ export enum Statuses{
     UpToDate = "Up To Date",
     Deleted = "Deleted",
     Error = 'Error'
+}
+
+export interface ExpenseFormData{
+    expense: {
+        id?:string;
+        payee_name?: string,
+        description?: string,
+        amount?: number,
+        due_date?: any,
+    }
 }
 
 export interface ExpenseState {
@@ -50,6 +61,15 @@ export const fetchExpensesAsync = createAsyncThunk(
     }
 )
 
+export const createExpenseAsync = createAsyncThunk(
+    'expenses/createExpense',
+    async (payload: ExpenseFormData)=>{
+        const response = await createExpense(payload)
+
+        return response
+    }
+)
+
 export const expenseSlice = createSlice({
     name: 'expenses',
     initialState,
@@ -71,6 +91,23 @@ export const expenseSlice = createSlice({
                 })
             })
             .addCase(fetchExpensesAsync.rejected, (state)=>{
+                return produce(state, (draftState) =>{
+                    draftState.status = Statuses.Error
+                })
+            })
+            /**update section */
+            .addCase(createExpenseAsync.pending, (state)=>{
+                return produce(state, (draftState) =>{
+                    draftState.status = Statuses.Loading
+                })
+            })
+            .addCase(createExpenseAsync.fulfilled, (state, action)=>{
+                return produce(state, (draftState) =>{
+                    draftState.expenses.push(action.payload);
+                    draftState.status = Statuses.UpToDate;
+                })
+            })
+            .addCase(createExpenseAsync.rejected, (state)=>{
                 return produce(state, (draftState) =>{
                     draftState.status = Statuses.Error
                 })
