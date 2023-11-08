@@ -21,7 +21,7 @@ function Expenses() {
     if (expenseToEdit ===expense_id){
         SetExpenseToEdit(0);
     }else{
-        SetExpenseToEdit(expenseToEdit as number);
+        SetExpenseToEdit(expense_id as number);
     }
   }
 

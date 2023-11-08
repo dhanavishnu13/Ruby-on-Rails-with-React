@@ -19,10 +19,10 @@ function Expense(props: any) {
       const formData = {
         expense: {
           id: props.expense.id,
-          payee_name: props.expsense.payee_name,
-          description: props.expsense.description,
-          amount: props.expense.amount,
-          date: props.expense.date
+          payee_name: payee,
+          description: description,
+          amount: amount,
+          date: due_date
         }
       }
       props.submitEdit(formData)
@@ -35,7 +35,7 @@ function Expense(props: any) {
       setAmount(props.expense.amount)
       setDue_date(props.expense.due_date)
     }
-    const payeeElement = <h2>{props.expense.payee_name}</h2>
+    const payeeElement = <h1>{props.expense.payee_name}</h1>
     const descElement = <p>{props.expense.description}</p>
     const amountElement = <p>{props.expense.amount}</p>
     const dateElement = <p>{props.expense.due_date}</p>
@@ -68,11 +68,11 @@ function Expense(props: any) {
       <Card.Body>
         <Card.Title>{isEditing?editablePayee : payeeElement}</Card.Title>
         <Card.Text>
-        {props.expense.description}
+        {isEditing?editableDescription: descElement}
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>{isEditing?editableDescription : descElement}</ListGroup.Item>
+        {/* <ListGroup.Item>{isEditing?editableDescription : descElement}</ListGroup.Item> */}
         <ListGroup.Item>{isEditing? editableAmount : amountElement}</ListGroup.Item>
         <ListGroup.Item>{isEditing? editableDate : dateElement}</ListGroup.Item>
       </ListGroup>
