@@ -37,11 +37,13 @@ function ExpenseForm() {
         type='text'
         className='form-control text-start'
         name='payee_name'
+        placeholder='Payee Name'
         value={payee}
         onChange={(e)=>setPayee(e.target.value)}/>
         <textarea
         className='form-control text-start'
         name='description'
+        placeholder='Description'
         value={description}
         onChange={(e)=>setDescription(e.target.value)}
         />
@@ -49,6 +51,7 @@ function ExpenseForm() {
         type='number'
         className='form-control text-start'
         name='amount'
+        placeholder='Amount'
         value={amount}
         onChange={(e)=>setAmount(e.target.value)}
         />
@@ -56,11 +59,14 @@ function ExpenseForm() {
         type='date'
         className='form-control text-start'
         name='due_date'
+        placeholder='Due Date'
         value={due_date}
         onChange={(e)=>setDue_date(e.target.value)}
         />
+        <br/>
         <button
         type='submit'
+        className='btn btn-success'
         onClick={(e)=>submitHandler(e)}>Submit</button>
       </form>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ButtonGroup from './ButtonGroup';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 function Expense(props: any) {
     const [payee, setPayee]=useState(props.expense.payee_name)
@@ -62,7 +63,7 @@ function Expense(props: any) {
     const submitButton = <button
       type='submit'
       onClick={(e)=>submitHandler(e)}>Submit</button>
-  return <div>
+  return <CardGroup>
     <Card style={{ width: '18rem' }}>
       {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
       <Card.Body>
@@ -85,7 +86,7 @@ function Expense(props: any) {
       {isEditing ? submitButton : ""}
       </Card.Body>
     </Card>
-  </div>
+  </CardGroup>
 }
 
 export default Expense
