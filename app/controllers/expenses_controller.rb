@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[ show edit update destroy ]
-  skip_before_action :verify_authenticity_token
+  
 
   # GET /expenses or /expenses.json
   def index

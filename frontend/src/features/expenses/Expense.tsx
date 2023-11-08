@@ -63,6 +63,25 @@ function Expense(props: any) {
     const submitButton = <button
       type='submit'
       onClick={(e)=>submitHandler(e)}>Submit</button>
+
+  // Assuming props.expense.updated_at is a valid date string
+  const updatedDate = new Date(props.expense.updated_at);
+
+  // Format the date to the Indian standard format (dd/mm/yyyy)
+  const day = updatedDate.getDate();
+  const month = updatedDate.getMonth() + 1; // Month is 0-based, so add 1
+  const year = updatedDate.getFullYear();
+  const hours = updatedDate.getHours();
+  const minutes = updatedDate.getMinutes();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  // Convert hours to 12-hour format
+  const formattedHours = hours % 12 || 12;
+
+  // Add leading zeros if needed
+  const formattedDate = `${day < 10 ? '0' : ''}${day}/${month < 10 ? '0' : ''}${month}/${year}`;
+  const formattedTime = `${formattedHours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+
   return <CardGroup>
     <Card style={{ width: '18rem' }}>
       {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
@@ -86,7 +105,7 @@ function Expense(props: any) {
       {isEditing ? submitButton : ""}
       </Card.Body>
       <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
+          <small className="text-muted">{formattedDate} {formattedTime}</small>
         </Card.Footer>
     </Card>
   </CardGroup>
