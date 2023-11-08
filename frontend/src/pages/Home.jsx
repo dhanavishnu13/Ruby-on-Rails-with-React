@@ -1,31 +1,30 @@
-import React, { Component } from 'react'
-import Card from '../components/Card'
-import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit"
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { fetchPosts } from '../Redux/Actions/TwitterActions'
-import Registration from '../components/auth/Registration'
+import React, { Component } from "react";
+import Login from "../features/auth/login";
+import { Link } from "react-router-dom";
 
+export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+  }
 
-class Home extends Component {
-    componentDidMount() {
-        this.props.fetchPosts();
-    }
-    render() {
-        return (
-            <div>
-                <h1>home</h1>
-                <Registration/>
-            </div>
-        )
-    }
+  handleSuccessfulAuth(data) {
+    this.props.handleLogin(data);
+    this.props.history.push("/dashboard");
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Home</h1>
+        <h1>Status: {this.props.loggedInStatus}</h1>
+        <Login
+          handleSuccessfulAuth={this.handleSuccessfulAuth}
+        />
+        <p>
+          Don't have an account? <Link to="/registration">Register</Link>
+        </p>
+      </div>
+    );
+  }
 }
-Home.propTypes = {
-    fetchPosts: PropTypes.func.isRequired
-}
-
-const mapStateToProps = state => ({
-    twitter: state.twitter.items
-});
-
-export default connect(mapStateToProps, { fetchPosts })(Home)
