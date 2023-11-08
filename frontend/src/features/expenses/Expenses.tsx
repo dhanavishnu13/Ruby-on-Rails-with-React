@@ -26,6 +26,8 @@ function Expenses() {
                   return <div key={expense.id} style={{margin:"5em"}}>
                       <h3>{expense.payee_name}</h3>
                       <p>{expense.description}</p>
+                      <p>{expense.amount}</p>
+                      <p>{expense.due_date}</p>
                       </div>
               })}
           </div>

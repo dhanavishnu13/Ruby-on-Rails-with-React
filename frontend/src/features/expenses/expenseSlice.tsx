@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import produce from 'immer'
 import { RootState } from '../../app/store'
-import { fetchExpenses, createExpense } from './expenseAPI'
+import { fetchExpenses, createExpense, destoryExpense } from './expenseAPI'
 import { platform } from 'os'
 
 
@@ -18,8 +18,8 @@ export interface ExpenseFormData{
         id?:string;
         payee_name?: string,
         description?: string,
-        amount?: number,
-        due_date?: any,
+        amount?: string,
+        due_date?: string,
     }
 }
 
@@ -31,6 +31,16 @@ export interface ExpenseState {
     due_date?: any,
     created_at?: any,
     updated_at?: any
+}
+export interface PostUpdateData{
+    expense_id: number
+    expense: ExpenseState
+}
+
+export interface ExpenseDeleteData{
+    expense:{
+        expense_id: number;
+    }
 }
 
 export interface ExpensesState{
@@ -65,6 +75,15 @@ export const createExpenseAsync = createAsyncThunk(
     'expenses/createExpense',
     async (payload: ExpenseFormData)=>{
         const response = await createExpense(payload)
+
+        return response
+    }
+)
+
+export const destoryExpenseAsync = createAsyncThunk(
+    'expenses/destoryExpense',
+    async (payload: ExpenseDeleteData)=>{
+        const response = await destoryExpense(payload)
 
         return response
     }
@@ -108,6 +127,23 @@ export const expenseSlice = createSlice({
                 })
             })
             .addCase(createExpenseAsync.rejected, (state)=>{
+                return produce(state, (draftState) =>{
+                    draftState.status = Statuses.Error
+                })
+            })
+            /**Delete section*/
+            .addCase(destoryExpenseAsync.pending, (state)=>{
+                return produce(state, (draftState) =>{
+                    draftState.status = Statuses.Loading
+                })
+            })
+            .addCase(destoryExpenseAsync.fulfilled, (state, action)=>{
+                return produce(state, (draftState) =>{
+                    draftState.expenses=action.payload;
+                    draftState.status = Statuses.UpToDate;
+                })
+            })
+            .addCase(destoryExpenseAsync.rejected, (state)=>{
                 return produce(state, (draftState) =>{
                     draftState.status = Statuses.Error
                 })
