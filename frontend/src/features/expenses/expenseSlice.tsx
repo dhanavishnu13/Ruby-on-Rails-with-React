@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import produce from 'immer'
 import { RootState } from '../../app/store'
-import { fetchExpenses, createExpense, destoryExpense } from './expenseAPI'
+import { fetchExpenses, createExpense, destoryExpense, updateExpense } from './expenseAPI'
 import { platform } from 'os'
 
 
@@ -80,6 +80,15 @@ export const createExpenseAsync = createAsyncThunk(
     }
 )
 
+export const updateExpenseAsync = createAsyncThunk(
+    'expenses/updateExpense',
+    async (payload: ExpenseFormData)=>{
+        const response = await updateExpense(payload);
+
+        return response
+    }
+)
+
 export const destoryExpenseAsync = createAsyncThunk(
     'expenses/destoryExpense',
     async (payload: ExpenseDeleteData)=>{
@@ -127,6 +136,26 @@ export const expenseSlice = createSlice({
                 })
             })
             .addCase(createExpenseAsync.rejected, (state)=>{
+                return produce(state, (draftState) =>{
+                    draftState.status = Statuses.Error
+                })
+            })
+            /**update section*/
+            .addCase(updateExpenseAsync.pending, (state)=>{
+                return produce(state, (draftState) =>{
+                    draftState.status = Statuses.Loading
+                })
+            })
+            .addCase(updateExpenseAsync.fulfilled, (state, action)=>{
+                return produce(state, (draftState) =>{
+                    const index=draftState.expenses.findIndex(
+                        expense=> expense.id === action.payload.id
+                    );
+                    draftState.expenses[index]=action.payload;
+                    draftState.status = Statuses.UpToDate;
+                })
+            })
+            .addCase(updateExpenseAsync.rejected, (state)=>{
                 return produce(state, (draftState) =>{
                     draftState.status = Statuses.Error
                 })

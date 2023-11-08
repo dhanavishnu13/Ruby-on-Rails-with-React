@@ -35,6 +35,24 @@ export async function createExpense(payload: ExpenseFormData){
     })
 }
 
+export async function updateExpense(payload: ExpenseFormData) {
+    const expense = payload.expense;
+    return fetch(`${API_URL}/expenses/${expense.id}.json`,{
+        method: "PUT",
+        headers: {
+            "Content-Type":"application/json",
+        },
+        body: JSON.stringify({
+            expense,
+        }),
+    })
+    .then((response)=>response.json())
+    .catch((error)=>{
+        console.log("Error :",error);
+        return {} as ExpenseState;
+    })
+}
+
 export async function destoryExpense(payload: ExpenseDeleteData) {
     const expense = payload.expense
     return fetch(`${API_URL}/expenses/${expense.expense_id}.json`,{

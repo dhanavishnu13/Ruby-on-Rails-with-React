@@ -10,8 +10,9 @@ function ButtonGroup(props:any) {
         props.dispatch(destoryExpenseAsync(payload))
     }
   return (
-    <div className='btn-group float-end'>
-        <button className='btn btn-warning'>Edit</button>
+    <div className='btn-group float'>
+        <button className='btn btn-warning'
+        onClick={()=>props.toggleEditform()}>Edit</button>
         <button className='btn btn-danger' onClick={(e)=>handleClick(e)}>Delete</button>
     </div>
   )
