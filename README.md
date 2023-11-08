@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+* Integrating authendication with User model
+- rails g model User email password_digest
+

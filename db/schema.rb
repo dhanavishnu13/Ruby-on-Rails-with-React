@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_02_140345) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_08_121544) do
   create_table "expenses", force: :cascade do |t|
     t.string "payee_name", null: false
     t.string "description"
@@ -18,6 +18,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_02_140345) do
     t.decimal "amount", null: false
     t.date "due_date", null: false
     t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
