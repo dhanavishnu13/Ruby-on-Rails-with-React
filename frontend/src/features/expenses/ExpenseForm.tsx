@@ -2,9 +2,9 @@ import { title } from 'process';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {createExpenseAsync} from './expenseSlice'
-
+import {ThunkDispatch} from "@reduxjs/toolkit";
 function ExpenseForm() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const [payee, setPayee]=useState('')
   const [description, setDescription]=useState('')
 
