@@ -11,13 +11,20 @@ import { redirect } from "react-router-dom";
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
-  const [user,setUser]=useState({})
+  // const [user,setUser]=useState('')
+
   const handleLogin = (data) => {
     setLoggedInStatus("LOGGED_IN");
   };
 
   const handleLogout = () => {
-    setLoggedInStatus("NOT_LOGGED_IN");
+    
+    axios.delete("http://localhost:3000/logout", { withCredentials: true })
+    .then(response =>{
+      setLoggedInStatus("NOT_LOGGED_IN");
+    }).catch((error) =>{
+      console.log("Logout error",error)
+    })
   };
 
   const handleSuccessfulAuth = (data) => {
@@ -25,7 +32,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    // checkLoginStatus();
+    checkLoginStatus();
   }, []);
 
   const checkLoginStatus = () => {
@@ -34,23 +41,22 @@ export default function App() {
       .then((response) => {
         if (response.data.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
           setLoggedInStatus("LOGGED_IN");
-          setUser(response.data.user)
+          // setUser(response.data.user)
         } else if (!response.data.logged_in && loggedInStatus === "LOGGED_IN") {
           setLoggedInStatus("NOT_LOGGED_IN");
-          setUser({})
+          // setUser({})
         }
       })
       .catch((error) => {
         console.log("login error", error);
       });
   };
-  checkLoginStatus()
 
   return (
     <div className="app">
       <BrowserRouter>
       
-        {/* <nav>
+        <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -62,14 +68,21 @@ export default function App() {
               <Link to="/expenses">Expenses</Link>
             </li>
             <li>
+              
               <Link to="/registration">Registration</Link>
             </li>
+            
+              {loggedInStatus==="LOGGED_IN"?
+              <li>
+              <button onClick={()=>handleLogout()}>Logout</button></li>
+              :""}
+            
           </ul>
-        </nav> */}
+        </nav>
         <Routes>
           <Route
             path="/"
-            element={<Home loggedInStatus={loggedInStatus} handleLogin={handleLogin} handleLogout={handleLogout} />}
+            element={<Home loggedInStatus={loggedInStatus} handleLogin={handleLogin} />}
           />
           <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} />} />
           <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} />} />
@@ -78,7 +91,7 @@ export default function App() {
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}
           />
         </Routes>
-        {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:""}
+        {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:<Navigate to="/"/>}
       </BrowserRouter>
     </div>
   );
