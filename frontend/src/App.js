@@ -11,7 +11,7 @@ import { redirect } from "react-router-dom";
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
-  // const [user,setUser]=useState('')
+  const [user,setUser]=useState(0)
 
   const handleLogin = (data) => {
     setLoggedInStatus("LOGGED_IN");
@@ -41,10 +41,12 @@ export default function App() {
       .then((response) => {
         if (response.data.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
           setLoggedInStatus("LOGGED_IN");
-          // setUser(response.data.user)
+          setUser(response.data.user.id)
+          // console.log(response.data.user.id)
+          // debugger
         } else if (!response.data.logged_in && loggedInStatus === "LOGGED_IN") {
           setLoggedInStatus("NOT_LOGGED_IN");
-          // setUser({})
+          setUser({})
         }
       })
       .catch((error) => {
@@ -78,6 +80,7 @@ export default function App() {
                 <li>
                   <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Logout</button>
                   </li>
+                  <li>{user}</li>
               </div>
               :""}
             
@@ -89,7 +92,8 @@ export default function App() {
             element={<Home loggedInStatus={loggedInStatus} handleLogin={handleLogin} />}
           />
           <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} />} />
-          <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} />} />
+          
+          <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} user={user}/>} />
           <Route
             path="/registration"
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}

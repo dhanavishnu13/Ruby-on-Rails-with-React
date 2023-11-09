@@ -18,8 +18,9 @@ export interface ExpenseFormData{
         id?:string;
         payee_name?: string,
         description?: string,
-        category?: string,
-        amount?: string,
+        category_id?: number,
+        user_id?:number,
+        amount?: number,
         due_date?: string,
     }
 }
@@ -28,7 +29,8 @@ export interface ExpenseState {
     id?: number,
     payee_name?: string,
     description?: string,
-    category?: string,
+    category_id?: number,
+    user_id?:number,
     amount?: number,
     due_date?: any,
     created_at?: any,
@@ -56,7 +58,8 @@ const initialState: ExpensesState={
             id: 0,
             payee_name: "",
             description: "",
-            category: "",
+            category_id: 0,
+            user_id:0,
             amount: 0,
             due_date:"",
             created_at: "",

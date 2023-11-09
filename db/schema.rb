@@ -15,13 +15,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_09_121957) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "categoryId", null: false
+    t.integer "category_id", null: false
   end
 
   create_table "expenses", force: :cascade do |t|
     t.string "payee_name", null: false
     t.string "description"
-    t.string "category"
     t.decimal "amount", null: false
     t.date "due_date", null: false
     t.string "status"

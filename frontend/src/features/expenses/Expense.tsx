@@ -23,7 +23,7 @@ function Expense(props: any) {
           id: props.expense.id,
           payee_name: payee,
           description: description,
-          category: category,
+          category_id: category,
           amount: amount,
           date: due_date
         }
@@ -43,7 +43,7 @@ function Expense(props: any) {
     }
     const payeeElement = <h1>{props.expense.payee_name}</h1>
     const descElement = <p>{props.expense.description}</p>
-    const categoryElement = <p>{props.expense.category}</p>
+    const categoryElement = <p>{props.expense.category_id}</p>
     const amountElement = <p>{props.expense.amount}</p>
     const dateElement = <p>{props.expense.due_date}</p>
 
@@ -59,11 +59,11 @@ function Expense(props: any) {
     const editableCategory=<select
     value={category}
     onChange={(e)=>setCategory(e.target.value)}
-    ><option value='food'>Food</option>
-    <option value='transportation'>Transportation</option>
-    <option value='entertainment'>Entertainment</option>
-    <option value='rent'>Rent</option>
-    <option value='other'>Other</option>
+    ><option value='1'>Food</option>
+    <option value='2'>Transportation</option>
+    <option value='3'>Entertainment</option>
+    <option value='4'>Rent</option>
+    <option value='5'>Other</option>
     </select>
 
     const editableAmount=<input 

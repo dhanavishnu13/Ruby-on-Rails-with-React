@@ -3,21 +3,31 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {createExpenseAsync} from './expenseSlice'
 import {ThunkDispatch} from "@reduxjs/toolkit";
-function ExpenseForm() {
+function ExpenseForm(user_info: any) {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const [payee, setPayee]=useState('')
   const [description, setDescription]=useState('')
   const [amount, setAmount]=useState('')
   const [due_date,setDue_date]=useState('')
   const [category, setCategory]=useState('');
+
+  let children;
+
+  for (const key in user_info) {
+    if (user_info.hasOwnProperty(key)) {
+      children=user_info[key];
+    }
+  }
+
   function submitHandler(e: any){
     e.preventDefault();
     const formData = {
       expense: {
         payee_name: payee,
         description: description,
-        category: category,
-        amount: amount,
+        category_id: Number(category),
+        user_id: 1,
+        amount: Number(amount),
         due_date: due_date
       }
     }
@@ -33,7 +43,8 @@ function ExpenseForm() {
   return (
     <div>
       <h1>ExpenseForm</h1>
-      <form>
+      {children}
+      <form>        
         <input
         type='text'
         className='form-control text-start'
@@ -51,14 +62,14 @@ function ExpenseForm() {
         <select
         className='form-control text-start'
         name='category'
-        value={category}
+        value={Number(category)}
         onChange={(e)=>setCategory(e.target.value)}
       >
-        <option value='food'>Food</option>
-        <option value='transportation'>Transportation</option>
-        <option value='entertainment'>Entertainment</option>
-        <option value='rent'>Rent</option>
-        <option value='other'>Other</option>
+        <option value='1'>Food</option>
+        <option value='2'>Transportation</option>
+        <option value='3'>Entertainment</option>
+        <option value='4'>Rent</option>
+        <option value='5'>Other</option>
         </select>
         <input
         type='number'
