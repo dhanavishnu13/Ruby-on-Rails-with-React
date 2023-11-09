@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Registration from "./features/auth/Registration";
+import Expenses from "./features/expenses/Expenses";
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
@@ -52,6 +53,9 @@ export default function App() {
               <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
+              <Link to="/expenses">Expenses</Link>
+            </li>
+            <li>
               <Link to="/registration">Registration</Link>
             </li>
           </ul>
@@ -62,6 +66,7 @@ export default function App() {
             element={<Home loggedInStatus={loggedInStatus} handleLogin={handleLogin} handleLogout={handleLogout} />}
           />
           <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} />} />
+          <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} />} />
           <Route
             path="/registration"
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}
