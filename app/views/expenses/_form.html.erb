@@ -26,6 +26,13 @@
     <%= form.text_area :amount %>
   </div>
 
+  <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon3">Find Category</span>
+          <%= form.select :category, options_for_select([["food", "food"], ["transportation", "transportation"], ["entertainment","entertainment"], ["rent","rent"], ["other", "other"]]) %>
+        </div>
+    </div>
+
   <div>
     <%= form.label :due_date, style: "display: block" %>
     <%= form.date_field :due_date %>

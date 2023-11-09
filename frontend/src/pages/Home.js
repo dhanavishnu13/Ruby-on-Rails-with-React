@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import Login from "../features/auth/login";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+    this.handleSuccessfulAuth1 = this.handleSuccessfulAuth1.bind(this);
   }
 
-  handleSuccessfulAuth(data) {
+  handleSuccessfulAuth1(data) {
     this.props.handleLogin(data);
-    this.props.history.push("/dashboard");
+    debugger;
+    <Navigate replace to="/dashboard" />
+    
   }
 
   render() {
@@ -19,7 +21,7 @@ export default class Home extends Component {
         <h1>Home</h1>
         <h1>Status: {this.props.loggedInStatus}</h1>
         <Login
-          handleSuccessfulAuth={this.handleSuccessfulAuth}
+          handleSuccessfulAuth={this.handleSuccessfulAuth1}
         />
         <p>
           Don't have an account? <Link to="/registration">Register</Link>

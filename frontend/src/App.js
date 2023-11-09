@@ -6,12 +6,17 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Registration from "./features/auth/Registration";
 import Expenses from "./features/expenses/Expenses";
+// import { Navigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
 
   const handleLogin = (data) => {
+    // let history = useNavigate();
     setLoggedInStatus("LOGGED_IN");
+    // <Navigate repl to="/dashboard" />
+    redirect("/dashboard");
   };
 
   const handleLogout = () => {
@@ -23,7 +28,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    checkLoginStatus();
+    // checkLoginStatus();
   }, []);
 
   const checkLoginStatus = () => {
@@ -44,7 +49,8 @@ export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <nav>
+      
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -59,7 +65,7 @@ export default function App() {
               <Link to="/registration">Registration</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <Routes>
           <Route
             path="/"

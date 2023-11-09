@@ -55,6 +55,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -74,3 +75,5 @@ end
 
 gem "rack-cors", "~> 2.0"
 gem 'bcrypt', '~> 3.1', '>= 3.1.19'
+
+

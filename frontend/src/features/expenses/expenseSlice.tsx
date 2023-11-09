@@ -18,6 +18,7 @@ export interface ExpenseFormData{
         id?:string;
         payee_name?: string,
         description?: string,
+        category?: string,
         amount?: string,
         due_date?: string,
     }
@@ -27,6 +28,7 @@ export interface ExpenseState {
     id?: number,
     payee_name?: string,
     description?: string,
+    category?: string,
     amount?: number,
     due_date?: any,
     created_at?: any,
@@ -54,6 +56,7 @@ const initialState: ExpensesState={
             id: 0,
             payee_name: "",
             description: "",
+            category: "",
             amount: 0,
             due_date:"",
             created_at: "",
@@ -84,7 +87,6 @@ export const updateExpenseAsync = createAsyncThunk(
     'expenses/updateExpense',
     async (payload: ExpenseFormData)=>{
         const response = await updateExpense(payload);
-
         return response
     }
 )

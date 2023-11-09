@@ -2,9 +2,11 @@ class SessionsController < ApplicationController
     include CurrentUserConcern
 
     def create
+        
         user = User.find_by(email: params["user"]["email"])
         .try(:authenticate, params["user"]["password"])  # getting from frontend as a object
-    if user
+        
+        if user
         session[:user_id]=user.id
         render json: {
             status: :created,
@@ -17,7 +19,10 @@ class SessionsController < ApplicationController
     end
 
     def logged_in
-        if @current_user
+        
+        user = User.find_by(email: params["user"]["email"])
+        if user && user.authenticate(params["user"]["password"])
+            
             render json: {
                 logged_in: true,
                 user: @current_user

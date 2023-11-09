@@ -9,18 +9,19 @@ function ExpenseForm() {
   const [description, setDescription]=useState('')
   const [amount, setAmount]=useState('')
   const [due_date,setDue_date]=useState('')
-
+  const [category, setCategory]=useState('');
   function submitHandler(e: any){
     e.preventDefault();
     const formData = {
       expense: {
         payee_name: payee,
         description: description,
+        category: category,
         amount: amount,
         due_date: due_date
       }
     }
-    debugger;
+    console.log(formData)
     dispatch(createExpenseAsync(formData));
     resetState();
   }
@@ -39,7 +40,7 @@ function ExpenseForm() {
         name='payee_name'
         placeholder='Payee Name'
         value={payee}
-        onChange={(e)=>setPayee(e.target.value)}/>
+        onChange={(e)=>setPayee(e.target.value)} required/>
         <textarea
         className='form-control text-start'
         name='description'
@@ -47,13 +48,25 @@ function ExpenseForm() {
         value={description}
         onChange={(e)=>setDescription(e.target.value)}
         />
+        <select
+        className='form-control text-start'
+        name='category'
+        value={category}
+        onChange={(e)=>setCategory(e.target.value)}
+      >
+        <option value='food'>Food</option>
+        <option value='transportation'>Transportation</option>
+        <option value='entertainment'>Entertainment</option>
+        <option value='rent'>Rent</option>
+        <option value='other'>Other</option>
+        </select>
         <input
         type='number'
         className='form-control text-start'
         name='amount'
         placeholder='Amount'
         value={amount}
-        onChange={(e)=>setAmount(e.target.value)}
+        onChange={(e)=>setAmount(e.target.value)} required
         />
         <input
         type='date'
@@ -61,7 +74,7 @@ function ExpenseForm() {
         name='due_date'
         placeholder='Due Date'
         value={due_date}
-        onChange={(e)=>setDue_date(e.target.value)}
+        onChange={(e)=>setDue_date(e.target.value)} required
         />
         <br/>
         <button

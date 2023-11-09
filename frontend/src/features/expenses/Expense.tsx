@@ -7,6 +7,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 function Expense(props: any) {
     const [payee, setPayee]=useState(props.expense.payee_name)
     const [description, setDescription]=useState(props.expense.description);
+    const [category, setCategory]=useState(props.expense.category)
     const [amount, setAmount]=useState(props.expense.amount)
     const [due_date, setDue_date]=useState(props.expense.due_date)
 
@@ -22,10 +23,13 @@ function Expense(props: any) {
           id: props.expense.id,
           payee_name: payee,
           description: description,
+          category: category,
           amount: amount,
           date: due_date
         }
       }
+      debugger
+      console.log(formData)
       props.submitEdit(formData)
       resetState();
     }
@@ -33,11 +37,13 @@ function Expense(props: any) {
     function resetState(){
       setPayee(props.expense.payee_name)
       setDescription(props.expense.description)
+      setCategory(props.expense.category)
       setAmount(props.expense.amount)
       setDue_date(props.expense.due_date)
     }
     const payeeElement = <h1>{props.expense.payee_name}</h1>
     const descElement = <p>{props.expense.description}</p>
+    const categoryElement = <p>{props.expense.category}</p>
     const amountElement = <p>{props.expense.amount}</p>
     const dateElement = <p>{props.expense.due_date}</p>
 
@@ -49,6 +55,16 @@ function Expense(props: any) {
     const editableDescription = <textarea 
     value={description}
     onChange={(e)=>setDescription(e.target.value)}/>
+
+    const editableCategory=<select
+    value={category}
+    onChange={(e)=>setCategory(e.target.value)}
+    ><option value='food'>Food</option>
+    <option value='transportation'>Transportation</option>
+    <option value='entertainment'>Entertainment</option>
+    <option value='rent'>Rent</option>
+    <option value='other'>Other</option>
+    </select>
 
     const editableAmount=<input 
                   type='number'
@@ -93,6 +109,7 @@ function Expense(props: any) {
       </Card.Body>
       <ListGroup className="list-group-flush">
         {/* <ListGroup.Item>{isEditing?editableDescription : descElement}</ListGroup.Item> */}
+        <ListGroup.Item>{isEditing? editableCategory : categoryElement}</ListGroup.Item>
         <ListGroup.Item>{isEditing? editableAmount : amountElement}</ListGroup.Item>
         <ListGroup.Item>{isEditing? editableDate : dateElement}</ListGroup.Item>
       </ListGroup>
