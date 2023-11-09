@@ -19,19 +19,30 @@ class SessionsController < ApplicationController
     end
 
     def logged_in
-        
-        user = User.find_by(email: params["user"]["email"])
-        if user && user.authenticate(params["user"]["password"])
-            
+        # byebug
+        # user = User.find_by(email: params["user"]["email"])
+        # .try(:authenticate,params["user"]["password"])
+        # byebug
+        # if (user)
+        #     render json: {
+        #         logged_in: true,
+        #         user: @current_user
+        #     }
+        # else
+        #     render json: {
+        #         logged_in: false
+        #     }       #not added status because not creating anything and just asking
+        # end
+        if @current_user
             render json: {
-                logged_in: true,
-                user: @current_user
+              logged_in: true,
+              user: @current_user
             }
-        else
+          else
             render json: {
-                logged_in: false
-            }       #not added status because not creating anything and just asking
-        end
+              logged_in: false
+            }
+          end
     end
 
     def loggout

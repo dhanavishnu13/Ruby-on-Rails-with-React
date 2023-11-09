@@ -11,7 +11,7 @@ import { redirect } from "react-router-dom";
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
-
+  const [user,setUser]=useState({})
   const handleLogin = (data) => {
     setLoggedInStatus("LOGGED_IN");
   };
@@ -34,14 +34,17 @@ export default function App() {
       .then((response) => {
         if (response.data.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
           setLoggedInStatus("LOGGED_IN");
+          setUser(response.data.user)
         } else if (!response.data.logged_in && loggedInStatus === "LOGGED_IN") {
           setLoggedInStatus("NOT_LOGGED_IN");
+          setUser({})
         }
       })
       .catch((error) => {
         console.log("login error", error);
       });
   };
+  checkLoginStatus()
 
   return (
     <div className="app">
