@@ -58,23 +58,27 @@ export default function App() {
       
         <nav>
           <ul>
-            <li>
+            {/* <li>
               <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/expenses">Expenses</Link>
-            </li>
-            <li>
+            </li> */}
+            
+            {/* <li>
               
               <Link to="/registration">Registration</Link>
-            </li>
+            </li> */}
             
               {loggedInStatus==="LOGGED_IN"?
-              <li>
-              <button onClick={()=>handleLogout()}>Logout</button></li>
+              <div>
+                <li>
+                <Link to="/expenses">Expenses</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li>
+                  <button onClick={()=>handleLogout()}>Logout</button>
+                  </li>
+              </div>
               :""}
             
           </ul>
