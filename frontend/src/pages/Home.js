@@ -10,8 +10,6 @@ export default class Home extends Component {
 
   handleSuccessfulAuth1(data) {
     this.props.handleLogin(data);
-    debugger;
-    <Navigate replace to="/dashboard" />
     
   }
 

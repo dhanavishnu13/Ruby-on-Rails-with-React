@@ -29,8 +29,7 @@ export default class Login extends Component {
       )
       .then(response => {
         console.log(response)
-        // if (response.data.logged_in && response.data.patient) {
-          if(response.status===200){
+        if (response.data.logged_in ) {//&& response.data.patient
           this.props.handleSuccessfulAuth(response.data);
         } else {
           this.props.handleSuccessfulDoctorAuth(response.data);
