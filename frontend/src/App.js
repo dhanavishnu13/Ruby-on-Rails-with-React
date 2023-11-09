@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Dashboard from "./features/Dashboard";
 import Home from "./pages/Home";
 import axios from "axios";
@@ -13,10 +13,7 @@ export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
 
   const handleLogin = (data) => {
-    // let history = useNavigate();
     setLoggedInStatus("LOGGED_IN");
-    // <Navigate repl to="/dashboard" />
-    redirect("/dashboard");
   };
 
   const handleLogout = () => {
@@ -78,6 +75,7 @@ export default function App() {
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}
           />
         </Routes>
+        {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:""}
       </BrowserRouter>
     </div>
   );
