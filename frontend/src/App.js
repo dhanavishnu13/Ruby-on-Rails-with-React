@@ -76,7 +76,7 @@ export default function App() {
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li>
-                  <button onClick={()=>handleLogout()}>Logout</button>
+                  <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Logout</button>
                   </li>
               </div>
               :""}
