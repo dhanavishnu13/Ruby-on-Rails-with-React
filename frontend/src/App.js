@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import Home from "./pages/Home";
 import axios from "axios";
@@ -9,6 +13,7 @@ import Expenses from "./features/expenses/Expenses";
 // import { Navigate } from "react-router-dom";
 import { redirect } from "react-router-dom";
 import Dashboard from "./features/expenses/Dashboard";
+
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
@@ -57,36 +62,35 @@ export default function App() {
 
   return (
     <div className="app">
+      <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="/">My Expenses</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+        {loggedInStatus==="LOGGED_IN"?
+          <Nav className="me-auto">
+            <Nav.Link href="/expenses">Expenses</Nav.Link>
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+            <NavDropdown title="My Profile" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+            <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Logout</button>
+          </Nav>
+          
+        :""}
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
       <BrowserRouter>
-      
-        <nav>
-          <ul>
-            {/* <li>
-              <Link to="/">Home</Link>
-            </li> */}
-            
-            {/* <li>
-              
-              <Link to="/registration">Registration</Link>
-            </li> */}
-            
-              {loggedInStatus==="LOGGED_IN"?
-              <div>
-                <li>
-                <Link to="/expenses">Expenses</Link>
-                </li>
-                <li>
-                  <Link to="/dashboard">Dashboard</Link>
-                </li>
-                <li>
-                  <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Logout</button>
-                  </li>
-                  <li>{user}</li>
-              </div>
-              :""}
-            
-          </ul>
-        </nav>
         <Routes>
           <Route
             path="/"
@@ -101,7 +105,6 @@ export default function App() {
           />
         </Routes>
         {/* {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:<Navigate to="/"/>} */}
-        {loggedInStatus==="NOT_LOGGED_IN"?<Navigate to="/"/>:""}
       </BrowserRouter>
     </div>
   );
