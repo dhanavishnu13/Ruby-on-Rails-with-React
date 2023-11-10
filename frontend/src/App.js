@@ -100,8 +100,8 @@ export default function App() {
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}
           />
         </Routes>
-        {/* {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:""} */}
-        {/* {loggedInStatus==="NOT_LOGGED_IN"?<Navigate to="/"/>:""} */}
+        {/* {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:<Navigate to="/"/>} */}
+        {loggedInStatus==="NOT_LOGGED_IN"?<Navigate to="/"/>:""}
       </BrowserRouter>
     </div>
   );

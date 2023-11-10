@@ -3,6 +3,20 @@ import { useAppSelector } from "../../app/hooks";
 import { selectExpenses } from "./expenseSlice";
 import { Table } from 'react-bootstrap';
 
+// Assuming you have a mapping of category IDs to names
+const categoryMapping: { [key: number]: string } = {
+  1: "Food",
+  2: "Transportation",
+  3: "Entertainment",
+  4: "Rent",
+  5: "Other",
+  // Add more entries as needed
+};
+
+function getCategoryName(categoryId: string): string {
+  return categoryMapping[categoryId] || "Unknown Category";
+}
+
 function Dashboard(user: any) {
     const expenses = useAppSelector(selectExpenses);
 
@@ -21,7 +35,7 @@ function Dashboard(user: any) {
     expenses
         .filter(expense => expense.user_id === user_id[1])
         .forEach(expense => {
-            const category = expense.categories_id;
+            const category = getCategoryName(expense.categories_id);
             const amount = parseFloat(expense.amount);
 
             if (category in categorySummary) {
@@ -70,7 +84,7 @@ function Dashboard(user: any) {
                             <tr key={expense.id}>
                                 <td>{expense.payee_name}</td>
                                 <td>{expense.description}</td>
-                                <td>{expense.categories_id}</td>
+                                <td>{getCategoryName(expense.categories_id)}</td>
                                 <td>{expense.amount}</td>
                                 <td>{expense.due_date}</td>
                             </tr>
