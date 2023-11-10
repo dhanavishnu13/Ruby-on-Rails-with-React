@@ -22,7 +22,7 @@ function Expenses(user: any) {
 
   for (const key in user) {
     if (user.hasOwnProperty(key)) {
-      user_id.push(<div key={key}>{user[key]}</div>);
+      user_id.push(user[key]);
     }
   }
   const [expenseToEdit, SetExpenseToEdit]=useState(0);
@@ -41,6 +41,7 @@ function Expenses(user: any) {
 
   function submitEdit(formData: any){
     dispatch(updateExpenseAsync(formData));
+    console.log(formData)
     toggleEditform();
   }
 
@@ -52,23 +53,24 @@ function Expenses(user: any) {
           <div className='card-body'>
               <h3>{status}{user_id[1]}</h3>
               {/**form post here */}
+
               <ExpenseForm user_info={user_id[1]}/>
-              {expenses && expenses.length>0 && expenses.map(expense =>{
-                  return <div key={expense.id} style={{margin:"5em"}}>
-                      {/* <h3>{expense.payee_name}</h3>
-                      <p>{expense.description}</p>
-                      <p>{expense.amount}</p>
-                      <p>{expense.due_date}</p> */}
-                      <Expense
-                      dispatch={dispatch}
-                      expense={expense}
-                      toggleEditform={()=> toggleEditform(expense.id)}
-                      expenseToEdit={expenseToEdit}
-                      submitEdit={submitEdit}
-                      
-                      />
-                      </div>
-              })}
+              
+              {expenses && expenses.length > 0 && expenses.filter(expense => expense.user_id === user_id[1]).map(expense => {
+              return (
+                <div key={expense.id} style={{ margin: "5em" }}>
+                  <Expense
+                    dispatch={dispatch}
+                    expense={expense}
+                    toggleEditform={() => toggleEditform(expense.id)}
+                    expenseToEdit={expenseToEdit}
+                    submitEdit={submitEdit}
+                    user_info={user_id[1]}
+                  />
+                </div>
+              );
+            })}
+
           </div>
       </div>
   }

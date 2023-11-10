@@ -23,13 +23,12 @@ function Expense(props: any) {
           id: props.expense.id,
           payee_name: payee,
           description: description,
-          category_id: category,
+          categories_id: category,
+          user_id: props.user_info,
           amount: amount,
           date: due_date
         }
       }
-      debugger
-      console.log(formData)
       props.submitEdit(formData)
       resetState();
     }
@@ -43,7 +42,7 @@ function Expense(props: any) {
     }
     const payeeElement = <h1>{props.expense.payee_name}</h1>
     const descElement = <p>{props.expense.description}</p>
-    const categoryElement = <p>{props.expense.category_id}</p>
+    const categoryElement = <p>{props.expense.categories_id}</p>
     const amountElement = <p>{props.expense.amount}</p>
     const dateElement = <p>{props.expense.due_date}</p>
 

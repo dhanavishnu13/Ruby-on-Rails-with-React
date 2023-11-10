@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
-import Dashboard from "./features/Dashboard";
+
 import Home from "./pages/Home";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,6 +8,7 @@ import Registration from "./features/auth/Registration";
 import Expenses from "./features/expenses/Expenses";
 // import { Navigate } from "react-router-dom";
 import { redirect } from "react-router-dom";
+import Dashboard from "./features/expenses/Dashboard";
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
@@ -91,7 +92,7 @@ export default function App() {
             path="/"
             element={<Home loggedInStatus={loggedInStatus} handleLogin={handleLogin} />}
           />
-          <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} />} />
+          <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} user={user}/>} />
           
           <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} user={user}/>} />
           <Route
@@ -99,7 +100,8 @@ export default function App() {
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}
           />
         </Routes>
-        {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:<Navigate to="/"/>}
+        {/* {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:""} */}
+        {/* {loggedInStatus==="NOT_LOGGED_IN"?<Navigate to="/"/>:""} */}
       </BrowserRouter>
     </div>
   );

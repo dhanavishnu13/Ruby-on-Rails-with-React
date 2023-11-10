@@ -1,7 +1,8 @@
 class ExpensesController < ApplicationController
+  extend CurrentUserConcern
   before_action :set_expense, only: %i[ show edit update destroy ]
   # before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  # before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /expenses or /expenses.json
   def index
@@ -23,8 +24,8 @@ class ExpensesController < ApplicationController
 
   # POST /expenses or /expenses.json
   def create
+    byebug
     @expense = Expense.new(expense_params)
-
     respond_to do |format|
       if @expense.save
         format.html { redirect_to expense_url(@expense), notice: "Expense was successfully created." }
@@ -72,6 +73,6 @@ class ExpensesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def expense_params
-      params.require(:expense).permit(:payee_name, :description, :amount, :due_date, :id, :category_id, :user_id)
+      params.require(:expense).permit(:payee_name, :description, :amount, :due_date, :id, :categories_id, :user_id)
     end
 end

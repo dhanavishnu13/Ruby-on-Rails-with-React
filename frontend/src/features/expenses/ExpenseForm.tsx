@@ -19,14 +19,15 @@ function ExpenseForm(user_info: any) {
     }
   }
 
+
   function submitHandler(e: any){
     e.preventDefault();
     const formData = {
       expense: {
         payee_name: payee,
         description: description,
-        category_id: Number(category),
-        user_id: 1,
+        categories_id: Number(category),
+        user_id: children,
         amount: Number(amount),
         due_date: due_date
       }
