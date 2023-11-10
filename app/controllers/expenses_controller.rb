@@ -24,7 +24,6 @@ class ExpensesController < ApplicationController
 
   # POST /expenses or /expenses.json
   def create
-    byebug
     @expense = Expense.new(expense_params)
     respond_to do |format|
       if @expense.save

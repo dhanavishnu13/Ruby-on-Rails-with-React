@@ -11,6 +11,21 @@ function Expense(props: any) {
     const [amount, setAmount]=useState(props.expense.amount)
     const [due_date, setDue_date]=useState(props.expense.due_date)
 
+    const categoryMapping: { [key: number]: string } = {
+      1: "Food",
+      2: "Transportation",
+      3: "Entertainment",
+      4: "Rent",
+      5: "Other",
+      // Add more entries as needed
+    };
+    
+    function getCategoryName(categoryId: string): string {
+      return categoryMapping[categoryId] || "Unknown Category";
+    }
+
+    
+
     const [isEditing, setIsEditing]=useState(props.expenseToEdit===props.expense.id);
     useEffect(()=>{
         setIsEditing(props.expenseToEdit === props.expense.id);
@@ -40,9 +55,9 @@ function Expense(props: any) {
       setAmount(props.expense.amount)
       setDue_date(props.expense.due_date)
     }
-    const payeeElement = <h1>{props.expense.payee_name}</h1>
+    const payeeElement = <h4>{props.expense.payee_name}</h4>
     const descElement = <p>{props.expense.description}</p>
-    const categoryElement = <p>{props.expense.categories_id}</p>
+    const categoryElement = <p>{getCategoryName(props.expense.categories_id)}</p>
     const amountElement = <p>{props.expense.amount}</p>
     const dateElement = <p>{props.expense.due_date}</p>
 
@@ -77,6 +92,7 @@ function Expense(props: any) {
 
     const submitButton = <button
       type='submit'
+      className='btn btn-secondary'
       onClick={(e)=>submitHandler(e)}>Submit</button>
 
   // Assuming props.expense.updated_at is a valid date string
@@ -97,34 +113,20 @@ function Expense(props: any) {
   const formattedDate = `${day < 10 ? '0' : ''}${day}/${month < 10 ? '0' : ''}${month}/${year}`;
   const formattedTime = `${formattedHours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
 
-  return <CardGroup>
-    <Card style={{ width: '18rem' }}>
-      {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
-      <Card.Body>
-        <Card.Title>{isEditing?editablePayee : payeeElement}</Card.Title>
-        <Card.Text>
-        {isEditing?editableDescription: descElement}
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        {/* <ListGroup.Item>{isEditing?editableDescription : descElement}</ListGroup.Item> */}
-        <ListGroup.Item>{isEditing? editableCategory : categoryElement}</ListGroup.Item>
-        <ListGroup.Item>{isEditing? editableAmount : amountElement}</ListGroup.Item>
-        <ListGroup.Item>{isEditing? editableDate : dateElement}</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-      <ButtonGroup
+  return <tr>
+    <td>{isEditing?editablePayee : payeeElement}</td>
+    <td>{isEditing?editableDescription: descElement}</td>
+    <td>{isEditing?editableCategory: categoryElement}</td>
+    <td>{isEditing? editableAmount : amountElement}</td>
+    <td>{isEditing? editableDate : dateElement}</td>
+    <td><ButtonGroup
                 expense_id={props.expense.id}
                 dispatch={props.dispatch}
                 toggleEditform={props.toggleEditform}
                 />
-      {isEditing ? submitButton : ""}
-      </Card.Body>
-      <Card.Footer>
-          <small className="text-muted">{formattedDate} {formattedTime}</small>
-        </Card.Footer>
-    </Card>
-  </CardGroup>
+      {isEditing ? submitButton : ""}</td>
+  </tr>
+  
 }
 
 export default Expense

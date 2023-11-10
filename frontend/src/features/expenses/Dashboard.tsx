@@ -3,14 +3,13 @@ import { useAppSelector } from "../../app/hooks";
 import { selectExpenses } from "./expenseSlice";
 import { Table } from 'react-bootstrap';
 
-// Assuming you have a mapping of category IDs to names
+
 const categoryMapping: { [key: number]: string } = {
   1: "Food",
   2: "Transportation",
   3: "Entertainment",
   4: "Rent",
   5: "Other",
-  // Add more entries as needed
 };
 
 function getCategoryName(categoryId: string): string {

@@ -45,6 +45,33 @@ function Expenses(user: any) {
     toggleEditform();
   }
 
+  const categoryMapping: { [key: number]: string } = {
+    1: "Food",
+    2: "Transportation",
+    3: "Entertainment",
+    4: "Rent",
+    5: "Other",
+  };
+  
+  function getCategoryName(categoryId: string): string {
+    return categoryMapping[categoryId] || "Unknown Category";
+  }
+  
+  const categorySummary: { [key: string]: number } = {};
+
+  expenses
+        .filter(expense => expense.user_id === user_id[1])
+        .forEach(expense => {
+            const category = getCategoryName(expense.categories_id);
+            const amount = parseFloat(expense.amount);
+
+            if (category in categorySummary) {
+                categorySummary[category] += amount;
+            } else {
+                categorySummary[category] = amount;
+            }
+        });
+
   let contents;
   if (status !== Statuses.UpToDate){
       contents = <div>{status}</div>
@@ -55,10 +82,21 @@ function Expenses(user: any) {
               {/**form post here */}
 
               <ExpenseForm user_info={user_id[1]}/>
-              
+              <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Payee</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
               {expenses && expenses.length > 0 && expenses.filter(expense => expense.user_id === user_id[1]).map(expense => {
               return (
-                <div key={expense.id} style={{ margin: "5em" }}>
+                
                   <Expense
                     dispatch={dispatch}
                     expense={expense}
@@ -67,9 +105,30 @@ function Expenses(user: any) {
                     submitEdit={submitEdit}
                     user_info={user_id[1]}
                   />
-                </div>
+                
               );
             })}
+            </tbody>
+            </Table>
+            <br/>
+            <h3>Summary</h3>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* Display summarized data */}
+                    {Object.keys(categorySummary).map(category => (
+                        <tr key={category}>
+                            <td>{category}</td>
+                            <td>{categorySummary[category]}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
 
           </div>
       </div>
