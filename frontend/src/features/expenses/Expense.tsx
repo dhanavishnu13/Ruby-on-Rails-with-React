@@ -44,6 +44,7 @@ function Expense(props: any) {
           date: due_date
         }
       }
+      console.log(formData)
       props.submitEdit(formData)
       resetState();
     }
@@ -73,7 +74,9 @@ function Expense(props: any) {
     const editableCategory=<select
     value={category}
     onChange={(e)=>setCategory(e.target.value)}
-    ><option value='1'>Food</option>
+    >
+    <option value='0' selected disabled>Select one category</option>
+    <option value='1' >Food</option>
     <option value='2'>Transportation</option>
     <option value='3'>Entertainment</option>
     <option value='4'>Rent</option>

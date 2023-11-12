@@ -28,7 +28,6 @@ function ExpenseForm(user_info: any) {
 
   function submitHandler(e: any){
     e.preventDefault();
-    debugger
     const formData = {
       expense: {
         payee_name: payee,
@@ -80,7 +79,7 @@ function ExpenseForm(user_info: any) {
         value={Number(category)}
         onChange={(e)=>setCategory(e.target.value)}
       >
-        <option value='0'>Select</option>
+        <option value='0' selected disabled>Select one category</option>
         <option value='1'>Food</option>
         <option value='2'>Transportation</option>
         <option value='3'>Entertainment</option>
