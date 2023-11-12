@@ -71,14 +71,19 @@ export default function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         {loggedInStatus==="LOGGED_IN"?
-          <Nav className="me-auto">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}><Nav className="me-auto">
             <Nav.Link href="/expenses">Expenses</Nav.Link>
             <Nav.Link href="/form">New Expense</Nav.Link>
             {/* <Nav.Link href="/dashboard">Dashboard</Nav.Link> */}
             <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Logout</button>
           </Nav>
-          
-        :""}
+      </div>       
+        :<div>
+          <Nav>
+          <Nav.Link href="/">Login</Nav.Link>
+          <Nav.Link href="/registration">Register</Nav.Link>
+          </Nav>
+          </div>}
         </Navbar.Collapse>
       </Container>
     </Navbar>
@@ -89,9 +94,12 @@ export default function App() {
             path="/"
             element={<Home loggedInStatus={loggedInStatus} handleLogin={handleLogin} />}
           />
-          <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} user={user}/>} />
+          {loggedInStatus==="LOGGED_IN"?
+          // <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} user={user}/>} />
           
           <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} user={user}/>} />
+          :""}
+          
           <Route
             path="/registration"
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}

@@ -84,7 +84,7 @@ function Expenses(user: any) {
 
               <h3>Expense List</h3>
               <br/>
-              <div style={{ display: 'flex', alignItems: 'right' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
                 <div style={{ marginRight: '10px' }}>
                   <input
                   type='text'
@@ -134,7 +134,9 @@ function Expenses(user: any) {
             })}
             </tbody>
             </Table>
-            <Link to='/form' className='btn btn-success' style={{ float: 'right' }}>New Expense</Link>
+            <div style={{ textAlign: 'center' }}>
+            <Link to='/form' className='btn btn-success'>New Expense</Link>
+            </div>
             {/* <ExpenseForm user_info={user_id[1]}/> */}
             <br/>
             <br/>

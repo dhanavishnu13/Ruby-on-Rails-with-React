@@ -58,7 +58,8 @@ export default class Registration extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container max-w-screen-lg mx-auto">
+        <br/>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input
@@ -70,9 +71,7 @@ export default class Registration extends Component {
               value={this.state.email}
               onChange={this.handleChange}
             />
-          </div>
-
-          <div className="form-group">
+            <br/>
             <input
               className="form-control"
               type="password"
@@ -82,9 +81,7 @@ export default class Registration extends Component {
               value={this.state.password}
               onChange={this.handleChange}
             />
-          </div>
-
-          <div className="form-group">
+          <br/>
             <input
               className="form-control"
               type="password"
@@ -95,7 +92,7 @@ export default class Registration extends Component {
               onChange={this.handleChange}
             />
           </div>
-
+          <br/>
           <button type="submit" className="btn btn-primary btn-sm">
             Register
           </button>
