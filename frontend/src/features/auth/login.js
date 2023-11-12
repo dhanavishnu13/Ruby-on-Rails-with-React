@@ -63,6 +63,7 @@ export default class Login extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <br/>
           <div className="form-group">
             <input
               className="form-control"
@@ -74,6 +75,7 @@ export default class Login extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <br/>
           <button type="submit" className="btn btn-primary btn-sm">
             Login
           </button>

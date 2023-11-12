@@ -15,12 +15,13 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container max-w-screen-lg mx-auto">
         <h1>Home</h1>
         <h1>Status: {this.props.loggedInStatus}</h1>
         <Login
           handleSuccessfulAuth={this.handleSuccessfulAuth1}
         />
+        <br/>
         <p>
           Don't have an account? <Link to="/registration">Register</Link>
         </p>

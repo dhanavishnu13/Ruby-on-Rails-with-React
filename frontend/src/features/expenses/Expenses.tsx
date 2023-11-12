@@ -11,13 +11,7 @@ function Expenses(user: any) {
   const expenses = useAppSelector(selectExpenses);
   const status = useAppSelector(selectStatus)
   const dispatch = useAppDispatch();
-  // const children = [];
-
-  // for (const key in loggedInStatus) {
-  //   if (loggedInStatus.hasOwnProperty(key)) {
-  //     children.push(<div key={key}>{loggedInStatus[key]}</div>);
-  //   }
-  // }
+  const [sortOrder, setSortOrder] = useState('asc');
 
   const user_id = [];
 
@@ -60,6 +54,9 @@ function Expenses(user: any) {
   
   const categorySummary: { [key: string]: number } = {};
 
+  const handleSortByDate = ()=>{
+    setSortOrder(sortOrder === '1' ? '-1' : '1');
+  }
   expenses
         .filter(expense => expense.user_id === user_id[1])
         .forEach(expense => {
@@ -73,6 +70,8 @@ function Expenses(user: any) {
             }
         });
 
+  
+
   let contents;
   if (status !== Statuses.UpToDate){
       contents = <div>{status}</div>
@@ -83,6 +82,10 @@ function Expenses(user: any) {
               *form post here */}
 
               <h3>Expense List</h3>
+              <button style={{ float: 'right' }} className='btn btn-primary' onClick={handleSortByDate}>
+                Sort by Date {sortOrder === '1' ? '▼' : '▲'}</button>
+              <br/>
+              <br/>
               <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -95,7 +98,12 @@ function Expenses(user: any) {
                     </tr>
                 </thead>
                 <tbody>
-              {expenses && expenses.length > 0 && expenses.filter(expense => expense.user_id === user_id[1]).map(expense => {
+                
+              {expenses && 
+              expenses.length > 0 && 
+              expenses.filter(expense => expense.user_id === user_id[1])
+              .sort((a,b)=>sortOrder *(new Date(b.due_date) - new Date(a.due_date)))
+              .map(expense => {
               return (
                 
                   <Expense
@@ -113,6 +121,7 @@ function Expenses(user: any) {
             </Table>
             <Link to='/form' className='btn btn-success'>New Expense</Link>
             {/* <ExpenseForm user_info={user_id[1]}/> */}
+            <br/>
             <br/>
 
             <h3>Summary</h3>

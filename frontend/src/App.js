@@ -18,10 +18,11 @@ import ExpenseForm from "./features/expenses/ExpenseForm";
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
-  const [user,setUser]=useState(0)
+  const [user,setUser]=useState(0);
 
   const handleLogin = (data) => {
     setLoggedInStatus("LOGGED_IN");
+    window.location.href = '/expenses'
   };
 
   const handleLogout = () => {
@@ -29,6 +30,7 @@ export default function App() {
     axios.delete("http://localhost:3000/logout", { withCredentials: true })
     .then(response =>{
       setLoggedInStatus("NOT_LOGGED_IN");
+      window.location.href = '/'
     }).catch((error) =>{
       console.log("Logout error",error)
     })
@@ -109,7 +111,6 @@ export default function App() {
           element={<ExpenseForm user_info={user} />}
           />
         </Routes>
-        {/* {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:<Navigate to="/"/>} */}
       </BrowserRouter>
     </div>
   );
