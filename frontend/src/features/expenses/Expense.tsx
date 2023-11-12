@@ -41,7 +41,7 @@ function Expense(props: any) {
           categories_id: category,
           user_id: props.user_info,
           amount: amount,
-          date: due_date
+          due_date: due_date
         }
       }
       console.log(formData)

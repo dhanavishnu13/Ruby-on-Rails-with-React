@@ -21,7 +21,7 @@ export interface ExpenseFormData{
         categories_id?: number,
         user_id?:number,
         amount?: number,
-        due_date?: string,
+        due_date?: any,
     }
 }
 
@@ -36,6 +36,7 @@ export interface ExpenseState {
     created_at?: any,
     updated_at?: any
 }
+
 export interface PostUpdateData{
     expense_id: number
     expense: ExpenseState
