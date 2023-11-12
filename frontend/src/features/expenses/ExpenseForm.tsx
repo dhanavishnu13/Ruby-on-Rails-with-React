@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {createExpenseAsync} from './expenseSlice'
 import {ThunkDispatch} from "@reduxjs/toolkit";
+import { Navigate, redirect } from 'react-router';
+import { useNavigate } from 'react-router-dom'; 
+
+
 function ExpenseForm(user_info: any) {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const [payee, setPayee]=useState('')
@@ -10,7 +14,9 @@ function ExpenseForm(user_info: any) {
   const [amount, setAmount]=useState('')
   const [due_date,setDue_date]=useState('')
   const [category, setCategory]=useState('');
+  const navigate = useNavigate();
 
+  let flag=false
   let children;
 
   for (const key in user_info) {
@@ -22,6 +28,7 @@ function ExpenseForm(user_info: any) {
 
   function submitHandler(e: any){
     e.preventDefault();
+    debugger
     const formData = {
       expense: {
         payee_name: payee,
@@ -32,18 +39,23 @@ function ExpenseForm(user_info: any) {
         due_date: due_date
       }
     }
-    console.log(formData)
     dispatch(createExpenseAsync(formData));
     resetState();
+    navigate('/expenses')
+    // flag=true
+    // debugger
   }
 
   function resetState(){
     setPayee('')
     setDescription('')
+    setCategory('')
+    setAmount('')
+    setDue_date('')
   }
   return (
     <div>
-      <h1>ExpenseForm</h1>
+      <h3>ExpenseForm</h3>
       {children}
       <form>        
         <input
@@ -94,7 +106,6 @@ function ExpenseForm(user_info: any) {
         className='btn btn-success'
         onClick={(e)=>submitHandler(e)}>Submit</button>
       </form>
-
     </div>
   )
 }

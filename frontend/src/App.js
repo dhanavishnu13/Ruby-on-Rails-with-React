@@ -13,6 +13,7 @@ import Expenses from "./features/expenses/Expenses";
 // import { Navigate } from "react-router-dom";
 import { redirect } from "react-router-dom";
 import Dashboard from "./features/expenses/Dashboard";
+import ExpenseForm from "./features/expenses/ExpenseForm";
 
 
 export default function App() {
@@ -102,6 +103,10 @@ export default function App() {
           <Route
             path="/registration"
             element={<Registration handleSuccessfulAuth={handleSuccessfulAuth} loggedInStatus={loggedInStatus} />}
+          />
+          <Route
+          path="/form"
+          element={<ExpenseForm user_info={user} />}
           />
         </Routes>
         {/* {loggedInStatus==="LOGGED_IN"?<Navigate to="/expenses"/>:<Navigate to="/"/>} */}

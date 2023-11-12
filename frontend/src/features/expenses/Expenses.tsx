@@ -5,6 +5,7 @@ import { execPath } from 'process';
 import ExpenseForm from './ExpenseForm';
 import Expense from './Expense';
 import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom';
 
 function Expenses(user: any) {
   const expenses = useAppSelector(selectExpenses);
@@ -78,10 +79,10 @@ function Expenses(user: any) {
   }else{
       contents=<div className='card'>
           <div className='card-body'>
-              <h3>{status}{user_id[1]}</h3>
-              {/**form post here */}
+              {/* <h3>{status}{user_id[1]}</h3>
+              *form post here */}
 
-              <ExpenseForm user_info={user_id[1]}/>
+              <h3>Expense List</h3>
               <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -110,7 +111,10 @@ function Expenses(user: any) {
             })}
             </tbody>
             </Table>
+            <Link to='/form'>New Expense</Link>
+            <ExpenseForm user_info={user_id[1]}/>
             <br/>
+
             <h3>Summary</h3>
             <Table striped bordered hover>
                 <thead>
@@ -136,7 +140,6 @@ function Expenses(user: any) {
 
 return (
   <div>
-      <h1>Expense</h1>
       {contents}
   </div>
 
