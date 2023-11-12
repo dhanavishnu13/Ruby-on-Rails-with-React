@@ -73,18 +73,8 @@ export default function App() {
         {loggedInStatus==="LOGGED_IN"?
           <Nav className="me-auto">
             <Nav.Link href="/expenses">Expenses</Nav.Link>
-            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-            <NavDropdown title="My Profile" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Logout</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/form">New Expense</Nav.Link>
+            {/* <Nav.Link href="/dashboard">Dashboard</Nav.Link> */}
             <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Logout</button>
           </Nav>
           

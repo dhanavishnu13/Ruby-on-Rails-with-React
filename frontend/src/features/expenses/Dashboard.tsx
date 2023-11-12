@@ -47,6 +47,7 @@ function Dashboard(user: any) {
     return (
         <div>
             <h2>Dashboard</h2>
+            {user_id[1]}
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -62,32 +63,6 @@ function Dashboard(user: any) {
                             <td>{categorySummary[category]}</td>
                         </tr>
                     ))}
-                </tbody>
-            </Table>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>Payee</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {/* Display individual expenses */}
-                    {expenses
-                        .filter(expense => expense.user_id === user_id[1])
-                        .map(expense => (
-                            <tr key={expense.id}>
-                                <td>{expense.payee_name}</td>
-                                <td>{expense.description}</td>
-                                <td>{getCategoryName(expense.categories_id)}</td>
-                                <td>{expense.amount}</td>
-                                <td>{expense.due_date}</td>
-                            </tr>
-                        ))}
                 </tbody>
             </Table>
         </div>
