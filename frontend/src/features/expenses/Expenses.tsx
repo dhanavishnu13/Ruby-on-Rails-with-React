@@ -12,6 +12,7 @@ function Expenses(user: any) {
   const status = useAppSelector(selectStatus)
   const dispatch = useAppDispatch();
   const [sortOrder, setSortOrder] = useState('asc');
+  const [searchPayee, setSearchPayee] = useState('')
 
   const user_id = [];
 
@@ -82,9 +83,22 @@ function Expenses(user: any) {
               *form post here */}
 
               <h3>Expense List</h3>
+              <br/>
+              <div style={{ display: 'flex', alignItems: 'right' }}>
+                <div style={{ marginRight: '10px' }}>
+                  <input
+                  type='text'
+                  className='form-control text-start'
+                  name='payee_name'
+                  placeholder='Payee Name'
+                  
+                  // value={payee_name}
+                  onChange={(e)=>setSearchPayee(e.target.value)} required/>
+                </div>
+              
               <button style={{ float: 'right' }} className='btn btn-primary' onClick={handleSortByDate}>
                 Sort by Date {sortOrder === '1' ? '▼' : '▲'}</button>
-              <br/>
+              </div>
               <br/>
               <Table striped bordered hover>
                 <thead>
@@ -102,6 +116,7 @@ function Expenses(user: any) {
               {expenses && 
               expenses.length > 0 && 
               expenses.filter(expense => expense.user_id === user_id[1])
+              .filter(expense => expense.payee_name.toLowerCase().includes(searchPayee.toLowerCase()))
               .sort((a,b)=>sortOrder *(new Date(b.due_date) - new Date(a.due_date)))
               .map(expense => {
               return (
@@ -119,7 +134,7 @@ function Expenses(user: any) {
             })}
             </tbody>
             </Table>
-            <Link to='/form' className='btn btn-success'>New Expense</Link>
+            <Link to='/form' className='btn btn-success' style={{ float: 'right' }}>New Expense</Link>
             {/* <ExpenseForm user_info={user_id[1]}/> */}
             <br/>
             <br/>
