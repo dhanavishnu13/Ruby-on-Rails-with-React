@@ -54,7 +54,7 @@ function ExpenseForm(user_info: any) {
     setDue_date('')
   }
   return (
-    <div>
+    <div className="container max-w-screen-lg mx-auto">
       <h3>ExpenseForm</h3>
       {children}
       <form>        
@@ -65,6 +65,7 @@ function ExpenseForm(user_info: any) {
         placeholder='Payee Name'
         value={payee}
         onChange={(e)=>setPayee(e.target.value)} required/>
+        <br/>
         <textarea
         className='form-control text-start'
         name='description'
@@ -72,18 +73,21 @@ function ExpenseForm(user_info: any) {
         value={description}
         onChange={(e)=>setDescription(e.target.value)}
         />
+        <br/>
         <select
         className='form-control text-start'
         name='category'
         value={Number(category)}
         onChange={(e)=>setCategory(e.target.value)}
       >
+        <option value='0'>Select</option>
         <option value='1'>Food</option>
         <option value='2'>Transportation</option>
         <option value='3'>Entertainment</option>
         <option value='4'>Rent</option>
         <option value='5'>Other</option>
         </select>
+        <br/>
         <input
         type='number'
         className='form-control text-start'
@@ -92,6 +96,7 @@ function ExpenseForm(user_info: any) {
         value={amount}
         onChange={(e)=>setAmount(e.target.value)} required
         />
+        <br/>
         <input
         type='date'
         className='form-control text-start'

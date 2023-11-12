@@ -111,8 +111,8 @@ function Expenses(user: any) {
             })}
             </tbody>
             </Table>
-            <Link to='/form'>New Expense</Link>
-            <ExpenseForm user_info={user_id[1]}/>
+            <Link to='/form' className='btn btn-success'>New Expense</Link>
+            {/* <ExpenseForm user_info={user_id[1]}/> */}
             <br/>
 
             <h3>Summary</h3>
