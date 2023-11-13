@@ -69,7 +69,7 @@ export default function App() {
     <div className="app">
       <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">My Expenses</Navbar.Brand>
+        <Navbar.Brand href="">My Expenses</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         {loggedInStatus==="LOGGED_IN"?

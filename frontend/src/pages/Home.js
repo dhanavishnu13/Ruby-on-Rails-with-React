@@ -15,8 +15,9 @@ export default class Home extends Component {
 
   render() {
     return (
+      <div>
+      {this.props.loggedInStatus==="NOT_LOGGED_IN"?
       <div className="container max-w-screen-lg mx-auto">
-        <h6>Status: {this.props.loggedInStatus}</h6>
         <Login
           handleSuccessfulAuth={this.handleSuccessfulAuth1}
         />
@@ -25,6 +26,8 @@ export default class Home extends Component {
           Don't have an account? <Link to="/registration">Register</Link>
         </p>
       </div>
+    :""}
+    </div>
     );
   }
 }
