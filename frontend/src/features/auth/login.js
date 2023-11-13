@@ -79,7 +79,7 @@ export default class Login extends Component {
           </div>
           <br/>
           <button type="submit" className="btn btn-primary btn-sm">
-            Login
+            Sign in
           </button>
         </form>
       </div>

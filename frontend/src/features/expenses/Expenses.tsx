@@ -114,7 +114,7 @@ function Expenses(user: any) {
                         <th>Description</th>
                         <th>Category</th>
                         <th>Amount</th>
-                        <th>Date</th>
+                        <th>Due Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>

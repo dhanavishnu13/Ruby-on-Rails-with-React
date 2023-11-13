@@ -77,7 +77,7 @@ export default function App() {
             <Nav.Link href="/expenses">Expenses</Nav.Link>
             <Nav.Link href="/form">New Expense</Nav.Link>
             {/* <Nav.Link href="/dashboard">Dashboard</Nav.Link> */}
-            <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Logout</button>
+            <button onClick={()=>handleLogout()} className="btn btn-warning btn-sm">Sign out</button>
           </Nav>
       </div>       
         :<div>
