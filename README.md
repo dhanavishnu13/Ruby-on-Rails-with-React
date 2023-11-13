@@ -13,10 +13,6 @@ Inital Dashboard view
 Here the Sample Dashboard view.
 ![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/0a2b4324-4b46-4053-9c21-4a2f1e6f49ec)
 
-* Database creation
-  Here is the DB Scheme,
-![Expense DB Scheme (1)](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/a676b24f-b599-4b1f-abef-be50293e4a5f)
-
 Teachinal Feature of the Application are:
 - Authendication System: Bulit with signUp and SignIn
 - Data Authorization: Each user has access to thier own data only
@@ -63,7 +59,8 @@ Things you may want to cover:
 * Configuration
 
 * Database initialization
-
+  Here is the DB Scheme,
+![Expense DB Scheme (1)](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/a676b24f-b599-4b1f-abef-be50293e4a5f)
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
