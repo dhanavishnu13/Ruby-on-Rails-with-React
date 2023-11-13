@@ -52,10 +52,15 @@ function ExpenseForm(user_info: any) {
     setAmount('')
     setDue_date('')
   }
+
+  function BackButton(){
+    navigate('/expenses')
+  }
   return (
     <div className="container max-w-screen-lg mx-auto">
       <h3>ExpenseForm</h3>
-      {children}
+      <button onClick={()=>BackButton()} className='btn btn-secondary'>Back</button>
+      <br/><br/>
       <form>        
         <input
         type='text'

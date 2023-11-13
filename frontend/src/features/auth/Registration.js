@@ -59,6 +59,7 @@ export default class Registration extends Component {
   render() {
     return (
       <div className="container max-w-screen-lg mx-auto">
+        <h3>Sign Up Form</h3>
         <br/>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -94,7 +95,7 @@ export default class Registration extends Component {
           </div>
           <br/>
           <button type="submit" className="btn btn-primary btn-sm">
-            Register
+            Sign Up
           </button>
           <p>
             Have an account? <Link to="/login">Login</Link>

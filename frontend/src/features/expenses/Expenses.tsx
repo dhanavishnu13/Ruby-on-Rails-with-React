@@ -71,6 +71,12 @@ function Expenses(user: any) {
             }
         });
 
+  const filteredExpenses = expenses && expenses.length > 0
+  ? expenses
+      .filter((expense) => expense.user_id === user_id[1])
+      .filter((expense) => expense.payee_name.toLowerCase().includes(searchPayee.toLowerCase()))
+      .sort((a, b) => sortOrder * (new Date(b.due_date) - new Date(a.due_date)))
+  : [];
   
 
   let contents;
@@ -81,7 +87,7 @@ function Expenses(user: any) {
           <div className='card-body'>
               {/* <h3>{status}{user_id[1]}</h3>
               *form post here */}
-
+              <h3>Hi, {user_id}</h3>
               <h4>Expense List</h4>
               <br/>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
@@ -112,12 +118,17 @@ function Expenses(user: any) {
                     </tr>
                 </thead>
                 <tbody>
-                
-              {expenses && 
-              expenses.length > 0 && 
-              expenses.filter(expense => expense.user_id === user_id[1])
-              .filter(expense => expense.payee_name.toLowerCase().includes(searchPayee.toLowerCase()))
-              .sort((a,b)=>sortOrder *(new Date(b.due_date) - new Date(a.due_date)))
+              {filteredExpenses.length==0?
+               <tr><td colspan="7">
+               <div className="container">
+                 <div className="row justify-content-center">
+                   <div className="col-6 text-center">
+                    No record found!
+                   </div>
+                 </div>
+               </div>
+               </td></tr>:""}
+              {filteredExpenses
               .map(expense => {
               return (
                 
@@ -140,7 +151,8 @@ function Expenses(user: any) {
             {/* <ExpenseForm user_info={user_id[1]}/> */}
             <br/>
             <br/>
-
+            {filteredExpenses.length==0?"":
+            <div>
             <h3>Summary</h3>
             <Table striped bordered hover>
                 <thead>
@@ -150,7 +162,6 @@ function Expenses(user: any) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* Display summarized data */}
                     {Object.keys(categorySummary).map(category => (
                         <tr key={category}>
                             <td>{category}</td>
@@ -159,7 +170,8 @@ function Expenses(user: any) {
                     ))}
                 </tbody>
             </Table>
-
+            </div>
+            }
           </div>
       </div>
   }
