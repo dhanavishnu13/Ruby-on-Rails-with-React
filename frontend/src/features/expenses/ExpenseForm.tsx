@@ -28,6 +28,17 @@ function ExpenseForm(user_info: any) {
 
   function submitHandler(e: any){
     e.preventDefault();
+
+    if (!payee.trim || !description.trim || !category || !amount || !due_date) {
+      window.alert('Please fill in all required fields');
+      return;
+    }else if(Number(amount) <= 0) {
+      window.alert('Amount must be a positive number');
+      return;
+    }
+    else
+    {
+
     const formData = {
       expense: {
         payee_name: payee,
@@ -43,6 +54,7 @@ function ExpenseForm(user_info: any) {
     navigate('/expenses')
     // flag=true
     // debugger
+  }
   }
 
   function resetState(){
