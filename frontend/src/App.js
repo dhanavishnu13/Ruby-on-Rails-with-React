@@ -19,7 +19,7 @@ import ExpenseForm from "./features/expenses/ExpenseForm";
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN");
   const [user,setUser]=useState(0);
-
+  const [email, setEmail]=useState(0);
   const handleLogin = (data) => {
     setLoggedInStatus("LOGGED_IN");
     window.location.href = '/expenses'
@@ -51,6 +51,8 @@ export default function App() {
         if (response.data.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
           setLoggedInStatus("LOGGED_IN");
           setUser(response.data.user.id)
+          setEmail(response.data.user.email)
+
           // console.log(response.data.user.id)
           // debugger
         } else if (!response.data.logged_in && loggedInStatus === "LOGGED_IN") {
@@ -97,7 +99,7 @@ export default function App() {
           {loggedInStatus==="LOGGED_IN"?
           // <Route path="/dashboard" element={<Dashboard loggedInStatus={loggedInStatus} user={user}/>} />
           
-          <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} user={user}/>} />
+          <Route path="/expenses" element={<Expenses loggedInStatus={loggedInStatus} user={user} email={email}/>} />
           :""}
           
           <Route

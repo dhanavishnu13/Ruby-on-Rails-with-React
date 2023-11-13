@@ -65,14 +65,17 @@ function Expense(props: any) {
     const editablePayee = <input
       type='text'
       value={payee}
+      className="form-control"
       onChange={(e)=> setPayee(e.target.value)}
     /> ;
     const editableDescription = <textarea 
     value={description}
+    className="form-control"
     onChange={(e)=>setDescription(e.target.value)}/>
 
     const editableCategory=<select
     value={category}
+    className="form-control"
     onChange={(e)=>setCategory(e.target.value)}
     >
     <option value='0' selected disabled>Select one category</option>
@@ -86,11 +89,13 @@ function Expense(props: any) {
     const editableAmount=<input 
                   type='number'
                   value={amount}
+                  className="form-control"
                   onChange={(e)=>setAmount(e.target.value)}
     />
     const editableDate=<input
     type='date'
     value={due_date}
+    className="form-control"
     onChange={(e)=> setDue_date(e.target.value)}/>
 
     const submitButton = <button

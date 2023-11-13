@@ -19,6 +19,7 @@ function Expenses(user: any) {
   for (const key in user) {
     if (user.hasOwnProperty(key)) {
       user_id.push(user[key]);
+      console.log(user[key])
     }
   }
   const [expenseToEdit, SetExpenseToEdit]=useState(0);
@@ -87,7 +88,7 @@ function Expenses(user: any) {
           <div className='card-body'>
               {/* <h3>{status}{user_id[1]}</h3>
               *form post here */}
-              <h3>Hi, {user_id}</h3>
+              <h3>Hi, {user_id[2]}</h3>
               <h4>Expense List</h4>
               <br/>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
