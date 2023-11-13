@@ -1,0 +1,428 @@
+{
+  "RSpec": {
+    "coverage": {
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/controllers/expenses_controller_spec.rb": {
+        "lines": [
+
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/helpers/categories_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/rails_helper.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          0,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/environment.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          null,
+          1
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/application.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/boot.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/environments/test.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/initializers/assets.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/initializers/content_security_policy.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/initializers/cors.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/initializers/permissions_policy.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/initializers/session_store.rb": {
+        "lines": [
+          1,
+          0,
+          null,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/config/routes.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/helpers/categories_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/helpers/expenses_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/models/category_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/models/category.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/models/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/requests/categories_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1699842486
+  }
+}

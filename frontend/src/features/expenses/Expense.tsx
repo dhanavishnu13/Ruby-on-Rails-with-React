@@ -56,7 +56,7 @@ function Expense(props: any) {
       setAmount(props.expense.amount)
       setDue_date(props.expense.due_date)
     }
-    const payeeElement = <h4>{props.expense.payee_name}</h4>
+    const payeeElement = <h5>{props.expense.payee_name}</h5>
     const descElement = <p>{props.expense.description}</p>
     const categoryElement = <p>{getCategoryName(props.expense.categories_id)}</p>
     const amountElement = <p>{props.expense.amount}</p>

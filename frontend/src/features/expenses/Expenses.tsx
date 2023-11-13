@@ -82,7 +82,7 @@ function Expenses(user: any) {
               {/* <h3>{status}{user_id[1]}</h3>
               *form post here */}
 
-              <h3>Expense List</h3>
+              <h4>Expense List</h4>
               <br/>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
                 <div style={{ marginRight: '10px' }}>
