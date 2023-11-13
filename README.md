@@ -1,5 +1,16 @@
 # README
-This is a Ruby on Rails with React Frontend Application for Managing Expense for users. Here the Sample Dashboard view.
+This is a Ruby on Rails with React Frontend Application for Managing Expense for users. 
+
+Login page view,
+![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/279f0dce-f45b-4e70-aff4-cd879c45fd57)
+
+Sign Up page
+![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/614a9172-2dfd-4a0c-8b1a-eb089c314682)
+
+Inital Dashboard view
+![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/8179636d-2210-4c4a-94d3-97ad62aa91a3)
+
+Here the Sample Dashboard view.
 ![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/0a2b4324-4b46-4053-9c21-4a2f1e6f49ec)
 
 * Database creation
@@ -9,6 +20,7 @@ This is a Ruby on Rails with React Frontend Application for Managing Expense for
 Teachinal Feature of the Application are:
 - Authendication System: Bulit with signUp and SignIn
 - Data Authorization: Each user has access to thier own data only
+- Single Dashboard UI
 - Summary Dashboard
 - Filter based on Due Date
 - Search for Payee Name
