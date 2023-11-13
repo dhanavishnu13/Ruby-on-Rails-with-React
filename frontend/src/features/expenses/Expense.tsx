@@ -7,7 +7,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 function Expense(props: any) {
     const [payee, setPayee]=useState(props.expense.payee_name)
     const [description, setDescription]=useState(props.expense.description);
-    const [category, setCategory]=useState(props.expense.category)
+    const [category, setCategory]=useState(props.expense.categories_id)
     const [amount, setAmount]=useState(props.expense.amount)
     const [due_date, setDue_date]=useState(props.expense.due_date)
 
@@ -52,7 +52,7 @@ function Expense(props: any) {
     function resetState(){
       setPayee(props.expense.payee_name)
       setDescription(props.expense.description)
-      setCategory(props.expense.category)
+      setCategory(props.expense.categories_id)
       setAmount(props.expense.amount)
       setDue_date(props.expense.due_date)
     }
@@ -127,7 +127,10 @@ function Expense(props: any) {
                 dispatch={props.dispatch}
                 toggleEditform={props.toggleEditform}
                 />
-      {isEditing ? submitButton : ""}</td>
+      {isEditing ? submitButton : ""}
+      <small>
+      <i>{formattedDate}-{formattedTime}</i>
+      </small></td>
   </tr>
   
 }

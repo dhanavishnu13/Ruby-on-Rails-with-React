@@ -3,11 +3,25 @@
     "coverage": {
       "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/controllers/expenses_controller_spec.rb": {
         "lines": [
-
-        ]
-      },
-      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/helpers/categories_helper_spec.rb": {
-        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           null,
           null,
@@ -20,8 +34,25 @@
           null,
           null,
           null,
-          1,
-          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -34,6 +65,7 @@
           null,
           1,
           1,
+          null,
           null,
           null,
           null,
@@ -367,6 +399,132 @@
           null
         ]
       },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/controllers/expenses_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/controllers/concerns/current_user_concern.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/helpers/categories_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/models/category_spec.rb": {
         "lines": [
           1,
@@ -386,6 +544,40 @@
         "lines": [
           1,
           1,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/spec/models/expense_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          2,
+          2,
+          2,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Dhanavishnu A/Desktop/demo/Ruby-on-Rails-with-React/Ruby-on-Rails-with-React/app/models/expense.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
           null
         ]
       },
@@ -423,6 +615,6 @@
         ]
       }
     },
-    "timestamp": 1699842486
+    "timestamp": 1699853344
   }
 }

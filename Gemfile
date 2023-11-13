@@ -61,6 +61,8 @@ group :development do
 
   gem 'simplecov', require: false, group: :test
 
+  gem 'factory_bot_rails'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
