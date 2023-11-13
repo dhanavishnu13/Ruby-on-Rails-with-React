@@ -19,7 +19,11 @@ Sign Up page
 
 Inital Dashboard view
 
-![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/8179636d-2210-4c4a-94d3-97ad62aa91a3)
+![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/40e42546-e0f1-4e14-b718-124156d08e63)
+
+Expense Form view
+
+![image](https://github.com/dhanavishnu13/Ruby-on-Rails-with-React/assets/83368841/d563ea83-29ea-46fc-9f93-1bb4dc7ed657)
 
 Here the Sample Dashboard view
 
