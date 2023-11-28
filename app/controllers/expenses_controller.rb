@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  extend CurrentUserConcern
+  include CurrentUserConcern
   before_action :set_expense, only: %i[ show edit update destroy ]
   # before_action :authenticate_user!, except: [:index, :show]
   # before_action :correct_user, only: [:show, :edit, :update, :destroy]
