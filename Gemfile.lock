@@ -114,6 +114,9 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    idempotent-request (0.2.1)
+      oj (~> 3.0)
+      rack (~> 3.0)
     importmap-rails (1.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -153,6 +156,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    oj (3.16.1)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -281,6 +285,7 @@ DEPENDENCIES
   capybara
   debug
   factory_bot_rails
+  idempotent-request
   importmap-rails
   jbuilder
   puma (>= 5.0)

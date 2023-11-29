@@ -80,4 +80,6 @@ end
 gem "rack-cors", "~> 2.0"
 gem 'bcrypt', '~> 3.1', '>= 3.1.19'
 
+gem 'idempotent-request'
+
 
